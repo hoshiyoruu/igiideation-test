@@ -82,7 +82,7 @@ export default function AdminPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Project title</TableHead>
+                    <TableHead>Video Title</TableHead>
                     <TableHead>Marks given</TableHead>
                     <TableHead>Action</TableHead>
                   </TableRow>

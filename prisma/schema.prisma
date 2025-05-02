@@ -37,11 +37,7 @@ model Judge {
 model Project {
   id                      String               @id @default(uuid()) @map("_id")
   titleOfInnovation       String
-  abstractLink            String
-  supportingDocumentLink1 String
-  supportingDocumentLink2 String
-  supportingDocumentLink3 String
-  posterLink              String
+  sectionNo               String
   videoLink               String
   createdAt               DateTime             @default(now())
   updatedAt               DateTime             @updatedAt

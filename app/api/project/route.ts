@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const projectForm = JSON.parse(formData.get("project") as string);
 
   // modify google drive link
-  const abstractLink = modifyGoogleDriveLink(projectForm.abstractLink);
+  /**const abstractLink = modifyGoogleDriveLink(projectForm.abstractLink);
   const supportingDocumentLink1 = modifyGoogleDriveLink(
     projectForm.supportingDocumentLink1
   );
@@ -21,19 +21,15 @@ export async function POST(req: NextRequest) {
   );
   const supportingDocumentLink3 = modifyGoogleDriveLink(
     projectForm.supportingDocumentLink3
-  );
-  const posterLink = modifyGoogleDriveLink(projectForm.posterLink);
+  );**/
+  //const posterLink = modifyGoogleDriveLink(projectForm.posterLink);
   const videoLink = modifyGoogleDriveLink(projectForm.videoLink);
 
   try {
     const project = await prisma.project.create({
       data: {
         titleOfInnovation: projectForm.titleOfInnovation,
-        abstractLink: abstractLink,
-        supportingDocumentLink1: supportingDocumentLink1,
-        supportingDocumentLink2: supportingDocumentLink2,
-        supportingDocumentLink3: supportingDocumentLink3,
-        posterLink: posterLink,
+        sectionNo: projectForm.sectionNo,
         videoLink: videoLink,
         status: "PENDING",
       },
@@ -91,7 +87,7 @@ export async function PATCH(req: NextRequest) {
       );
 
     // modify google drive link
-    const abstractLink = modifyGoogleDriveLink(updatedProject.abstractLink);
+    /**const abstractLink = modifyGoogleDriveLink(updatedProject.abstractLink);
     const supportingDocumentLink1 = modifyGoogleDriveLink(
       updatedProject.supportingDocumentLink1
     );
@@ -101,7 +97,7 @@ export async function PATCH(req: NextRequest) {
     const supportingDocumentLink3 = modifyGoogleDriveLink(
       updatedProject.supportingDocumentLink3
     );
-    const posterLink = modifyGoogleDriveLink(updatedProject.posterLink);
+    const posterLink = modifyGoogleDriveLink(updatedProject.posterLink);**/
     const videoLink = modifyGoogleDriveLink(updatedProject.videoLink);
 
     const project = await prisma.project.update({
@@ -110,11 +106,7 @@ export async function PATCH(req: NextRequest) {
       },
       data: {
         titleOfInnovation: updatedProject.titleOfInnovation,
-        abstractLink: abstractLink,
-        supportingDocumentLink1: supportingDocumentLink1,
-        supportingDocumentLink2: supportingDocumentLink2,
-        supportingDocumentLink3: supportingDocumentLink3,
-        posterLink: posterLink,
+        sectionNo: updatedProject.sectionNo,
         videoLink: videoLink,
       },
     });

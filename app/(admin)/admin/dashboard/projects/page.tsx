@@ -42,12 +42,8 @@ export default function AdminDashboardPage() {
   const [judges, setJudges] = useState<Judge[]>();
   const [projectForm, setProjectForm] = useState({
     titleOfInnovation: "",
-    abstractLink: "",
-    posterLink: "",
+    sectionNo: "",
     videoLink: "",
-    supportingDocumentLink1: "",
-    supportingDocumentLink2: "",
-    supportingDocumentLink3: "",
   });
 
   const [_, setIsLoading] = useState(false);
@@ -125,7 +121,7 @@ export default function AdminDashboardPage() {
       <AdminHeader />
       <div className="m-20 px-5">
         <h1 className="text-2xl mb-5 font-semibold">
-          Project Management Dashboard
+          Video Management Dashboard
         </h1>
         <div className="w-full">
           <Breadcrumb>
@@ -136,7 +132,7 @@ export default function AdminDashboardPage() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink href="/admin/dashboard/projects">
-                  Projects
+                  Videos
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -156,15 +152,15 @@ export default function AdminDashboardPage() {
               <Dialog>
                 <DialogTrigger className="bg-primary text-secondary rounded-md p-1 px-2 flex items-center gap-x-2">
                   <FaPlus />
-                  Create Project
+                  New Video
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle>Create Project</DialogTitle>
+                    <DialogTitle>New Video</DialogTitle>
                   </DialogHeader>
                   <form onSubmit={handleCreateProject}>
                     <div>
-                      <Label>Title of innovation</Label>
+                      <Label>Video Title</Label>
                       <Input
                         id="titleOfInnovation"
                         required
@@ -172,16 +168,9 @@ export default function AdminDashboardPage() {
                       />
                     </div>
                     <div>
-                      <Label>Abstract Link</Label>
+                      <Label>Section</Label>
                       <Input
-                        id="abstractLink"
-                        onChange={(e) => handleChangeProjectForm(e)}
-                      />
-                    </div>
-                    <div>
-                      <Label>Poster Link</Label>
-                      <Input
-                        id="posterLink"
+                        id="sectionNo"
                         onChange={(e) => handleChangeProjectForm(e)}
                       />
                     </div>
@@ -192,26 +181,8 @@ export default function AdminDashboardPage() {
                         onChange={(e) => handleChangeProjectForm(e)}
                       />
                     </div>
-                    <div>
-                      <Label>Supporting documents</Label>
-                      <Input
-                        placeholder="Supporting document 1"
-                        onChange={(e) => handleChangeProjectForm(e)}
-                        id="supportingDocumentLink1"
-                      />
-                      <Input
-                        placeholder="Supporting document 2"
-                        onChange={(e) => handleChangeProjectForm(e)}
-                        id="supportingDocumentLink2"
-                      />
-                      <Input
-                        placeholder="Supporting document 3"
-                        id="supportingDocumentLink3"
-                        onChange={(e) => handleChangeProjectForm(e)}
-                      />
-                    </div>
                     <Button className="w-full mt-5" type="submit">
-                      Create Title
+                      Create New Video
                     </Button>
                   </form>
                 </DialogContent>
@@ -222,8 +193,8 @@ export default function AdminDashboardPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Project ID</TableHead>
-                  <TableHead>Project title</TableHead>
+                  <TableHead>Video ID</TableHead>
+                  <TableHead>Video title</TableHead>
                   <TableHead>Judges assigned</TableHead>
                   <TableHead>Action(s)</TableHead>
                 </TableRow>

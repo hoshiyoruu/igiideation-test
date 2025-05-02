@@ -116,7 +116,7 @@ export default function EvalForm({ projectId }: { projectId: string }) {
     <Card className="w-full max-w-2xl mx-auto p-4 border-none h-[100vh] overflow-y-auto">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-center">
-          Project Evaluation Form
+          TikTok Video Evaluation Form
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">

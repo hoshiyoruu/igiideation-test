@@ -14,12 +14,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { VideoViewer } from "@/app/(judge)/evaluate/[projectId]/VideoViewer";
-import { PosterViewer } from "@/app/(judge)/evaluate/[projectId]/PosterViewer";
-import { AbstractViewer } from "./AbstractViewer";
+//import { PosterViewer } from "@/app/(judge)/evaluate/[projectId]/PosterViewer";
+//import { AbstractViewer } from "./AbstractViewer";
 import EvalForm from "@/app/(judge)/evaluate/[projectId]/EvalForm";
 import { Project } from "@prisma/client";
 import JudgeHeader from "@/components/judge-header";
-import { SupportingDocumentsViewer } from "./SupportingDocumentsViewer";
+//import { SupportingDocumentsViewer } from "./SupportingDocumentsViewer";
 
 export default function JudgeDashboard({
   params,
@@ -59,31 +59,6 @@ export default function JudgeDashboard({
     switch (activeTab) {
       case "uploaded-videos":
         return <VideoViewer videoLink={project?.videoLink!} />;
-      case "abstract":
-        return <AbstractViewer abstractLink={project?.abstractLink!} />;
-      case "supporting-document-1":
-        return (
-          <SupportingDocumentsViewer
-            supportingDocumentLink={project?.supportingDocumentLink1}
-          />
-        );
-      case "supporting-document-2":
-        return (
-          <SupportingDocumentsViewer
-            supportingDocumentLink={project?.supportingDocumentLink2}
-          />
-        );
-
-      case "supporting-document-3":
-        return (
-          <SupportingDocumentsViewer
-            supportingDocumentLink={project?.supportingDocumentLink3}
-          />
-        );
-
-      case "poster":
-        return <PosterViewer posterLink={project?.posterLink!} />;
-      default:
         return null;
     }
   };
@@ -106,14 +81,6 @@ export default function JudgeDashboard({
             <ScrollArea className="w-full">
               <div className="">
                 <Button
-                  variant={activeTab === "abstract" ? "default" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("abstract")}
-                >
-                  <FileText className="mr-2 h-4 w-4" />
-                  Abstract
-                </Button>
-                <Button
                   variant={
                     activeTab === "uploaded-videos" ? "default" : "ghost"
                   }
@@ -122,44 +89,6 @@ export default function JudgeDashboard({
                 >
                   <Video className="mr-2 h-4 w-4" />
                   Uploaded Videos
-                </Button>
-                <Button
-                  variant={activeTab === "poster" ? "default" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("poster")}
-                >
-                  <Star className="mr-2 h-4 w-4" />
-                  Posters
-                </Button>
-                <Button
-                  variant={
-                    activeTab === "supporting-document-1" ? "default" : "ghost"
-                  }
-                  className="justify-start"
-                  onClick={() => setActiveTab("supporting-document-1")}
-                >
-                  <File className="mr-2 h-4 w-4" />
-                  Supporting Document 1
-                </Button>
-                <Button
-                  variant={
-                    activeTab === "supporting-document-2" ? "default" : "ghost"
-                  }
-                  className="justify-start"
-                  onClick={() => setActiveTab("supporting-document-2")}
-                >
-                  <File className="mr-2 h-4 w-4" />
-                  Supporting Document 2
-                </Button>
-                <Button
-                  variant={
-                    activeTab === "supporting-document-3" ? "default" : "ghost"
-                  }
-                  className="justify-start"
-                  onClick={() => setActiveTab("supporting-document-3")}
-                >
-                  <File className="mr-2 h-4 w-4" />
-                  Supporting Document 3
                 </Button>
               </div>
             </ScrollArea>

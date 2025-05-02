@@ -184,7 +184,7 @@ const ProjectTableRow = ({
             </DialogHeader>
             <form onSubmit={(e) => handleUpdateProject(e, project.id)}>
               <div>
-                <Label>Title of innovation</Label>
+                <Label>Video Title</Label>
                 <Input
                   id="titleOfInnovation"
                   required
@@ -198,29 +198,16 @@ const ProjectTableRow = ({
                 />
               </div>
               <div>
-                <Label>Abstract Link</Label>
+                <Label>Section</Label>
                 <Input
-                  id="abstractLink"
-                  onChange={(e) =>
+                  id="sectionNo"
+                  onChange={(e) => 
                     setUpdatedProject({
                       ...updatedProject,
-                      abstractLink: e.target.value,
+                      sectionNo: e.target.value,
                     })
                   }
-                  defaultValue={project.abstractLink}
-                />
-              </div>
-              <div>
-                <Label>Poster Link</Label>
-                <Input
-                  id="posterLink"
-                  onChange={(e) =>
-                    setUpdatedProject({
-                      ...updatedProject,
-                      posterLink: e.target.value,
-                    })
-                  }
-                  defaultValue={project.posterLink}
+                  defaultValue={project.sectionNo}
                 />
               </div>
               <div>
@@ -234,42 +221,6 @@ const ProjectTableRow = ({
                     })
                   }
                   defaultValue={project.videoLink}
-                />
-              </div>
-              <div>
-                <Label>Supporting documents</Label>
-                <Input
-                  placeholder="Supporting document 1"
-                  onChange={(e) =>
-                    setUpdatedProject({
-                      ...updatedProject,
-                      supportingDocumentLink1: e.target.value,
-                    })
-                  }
-                  id="supportingDocumentLink1"
-                  defaultValue={project.supportingDocumentLink1}
-                />
-                <Input
-                  placeholder="Supporting document 2"
-                  onChange={(e) =>
-                    setUpdatedProject({
-                      ...updatedProject,
-                      supportingDocumentLink2: e.target.value,
-                    })
-                  }
-                  id="supportingDocumentLink2"
-                  defaultValue={project.supportingDocumentLink2}
-                />
-                <Input
-                  placeholder="Supporting document 3"
-                  id="supportingDocumentLink3"
-                  onChange={(e) =>
-                    setUpdatedProject({
-                      ...updatedProject,
-                      supportingDocumentLink3: e.target.value,
-                    })
-                  }
-                  defaultValue={project.supportingDocumentLink3}
                 />
               </div>
               <Button className="w-full mt-5" type="submit">

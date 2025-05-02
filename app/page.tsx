@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default function Landing() {
   return (
     <>
-      <div className="flex flex-col min-h-[100dvh] bg-black">
+      <div className="min-h-screen bg-gradient-to-br from-[#FE2C55] via-black to-black">
         <main className="flex-1 text-white">
           <section className="w-full pt-12 md:pt-24 lg:pt-32 relative overflow-hidden">
             <WaveGradient />
@@ -18,16 +18,7 @@ export default function Landing() {
                     TIKTOK Judging System
                   </h1>
                   <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl mt-10 text-justify">
-                    The International Grand Invention, Innovation, and Design
-                    Expo (IGIIDeation) 2025 is a global event showcasing
-                    advancements in fields like computer science, AI, IoT,
-                    cybersecurity, and more. It promotes collaboration among
-                    innovators, researchers, and industry leaders, offering a
-                    platform for presenting projects, exploring trends, and
-                    engaging with cutting-edge technologies. Emphasizing
-                    interdisciplinary solutions, IGIIDeation 2025 aims to
-                    inspire future innovators and celebrate creativity and
-                    transformative ideas.
+                  Get ready, KICT IIUM! 🎉 The KICT TikTok Awards 2025 are here to celebrate the creativity, humor, and talent of our amazing students. Whether you’re a tech genius, content king, or just love to make people smile, this is your chance to shine on screen and win exciting prizes! Submit your best TikTok videos, show off your KICT spirit, and compete for titles like Best Creator, Funniest Video, Most Inspiring Content, and more. Let’s make the FYP proud — it’s your time to go viral! 📱✨ #KICTTikTokAwards #IIUMVibes #KICTOnTrend
                   </p>
                   <Link
                     href="/login"
@@ -39,11 +30,11 @@ export default function Landing() {
 
                  
                 </div>
-                <div className="flex flex-col items-start space-y-4 justify-center">
+                <div className="relative">
                   <img
-                    src="image/IGIIDeation-2025-BANNER.png"
+                    src="image/ioteams.png"
                     alt="Hero"
-                    className="mx-auto overflow-hidden rounded-t-xl object-cover w-auto h-auto"
+                    className="mx-auto w-full h-auto object-cover rounded-xl ring-2 ring-black-500 shadow-lg"
                   />
                 </div>
               </div>
@@ -58,14 +49,10 @@ export default function Landing() {
                     New Events
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    IGIIDeation 2025: Where Innovation Meets Inspiration
+                  TikTok Awards 2025: From KICT to FYP Stardom!
                   </h2>
-                  <p className="max-w-[900px] mx-auto text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                    Join the International Grand Invention, Innovation, and
-                    Design Expo 2025, a premier global event dedicated to
-                    showcasing groundbreaking ideas and fostering collaboration
-                    across diverse fields. Celebrate the spirit of innovation
-                    and explore transformative solutions shaping the future.
+                  <p className="max-w-[900px] mx-auto text-white-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-grey-400">
+                  Got a funny bone, creative spark, or tech story to share? Don’t just scroll — create! Be part of the KICT TikTok Awards 2025 and let your talent shine. Whether it’s coding comedy, student life hacks, or just good vibes, your video could earn you fame and prizes! 🎥✨ Don’t miss the chance to represent KICT in style — submit your TikTok now and show us what you’ve got! 💪🔥 
                   </p>
                 </div>
               </div>
@@ -150,52 +137,12 @@ export default function Landing() {
                       className="w-auto h-auto"
                     />
                     <Image
-                      src="/mbot.png"
+                      src="/ioteamslogo.png"
                       alt="Logo"
                       width={100}
                       height={100}
                       className="w-auto h-auto"
                     />
-                  </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-4xl mt-20 md:mt-14">
-                    In Collaboration:
-                  </h2>
-                  <div className="mx-auto grid max-w-[900px] gap- lg:grid-cols-5 xl:gap-8 mt-10">
-                    <div className="flex flex-col gap-0   overflow-hidden">
-                      <img
-                        src="/usk.png"
-                        alt="Logo"
-                        className="aspect-[2/1] w-auto h-auto"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-0   overflow-hidden">
-                      <img
-                        src="/mila.png"
-                        alt="Logo"
-                        className="aspect-[2/1] w-auto h-auto"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-0   overflow-hidden">
-                      <img
-                        src="/silver.png"
-                        alt="Logo"
-                        className="aspect-[2/1] w-auto h-auto"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-0   overflow-hidden">
-                      <img
-                        src="/mmu.png"
-                        alt="Logo"
-                        className="aspect-[2/1] w-auto h-auto"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-0   overflow-hidden">
-                      <img
-                        src="/uitm.png"
-                        alt="Logo"
-                        className="w-full h-auto object-center"
-                      />
-                    </div>
                   </div>
                 </div>
               </section>
