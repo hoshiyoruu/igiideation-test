@@ -22,26 +22,25 @@ export async function POST(req: NextRequest) {
 
     if (type === "ADMIN") {
       const loginAdminResult = await loginAsAdmin(email, password);
-      if (loginAdminResult.status === 401)
+      if (loginAdminResult === 401)
         return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-      else if (loginAdminResult.status === 404)
+      else if (loginAdminResult === 404)
         return NextResponse.json(
           { message: "Admin account not found" },
           { status: 404 }
         );
-      else return NextResponse.json(loginAdminResult.data, { status: 200 });
-
+      else return NextResponse.json(loginAdminResult, { status: 200 });
     } else if (type === "JUDGE") {
       const loginJudgeResult = await loginAsJudge(email, password);
 
-      if (loginJudgeResult.status === 401)
+      if (loginJudgeResult === 401)
         return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-      else if (loginJudgeResult.status === 404)
+      else if (loginJudgeResult === 404)
         return NextResponse.json(
           { message: "Judge account not found" },
           { status: 404 }
         );
-      else return NextResponse.json(loginJudgeResult.data, { status: 200 });
+      else return NextResponse.json(loginJudgeResult, { status: 200 });
     } else {
       console.error("Unspecified account type");
       return NextResponse.json(
@@ -56,21 +55,7 @@ export async function POST(req: NextRequest) {
 }
 
 async function loginAsAdmin(email: string, password: string) {
-    const dummyAdmin = {
-      id: "dummy-id",
-      email: "sitimaisarah6802@gmail.com", //tukar part ni
-      password: "admin123",
-      name: "Siti Maisarah"
-    };
-  
-    if (email === dummyAdmin.email && password === dummyAdmin.password) {
-      await createSession(dummyAdmin.id);
-      return { status: 200, data: dummyAdmin };
-    } else {
-      return { status: 401 };
-    }
-  }
-  /**const admin = await prisma.admin.findFirst({
+  const admin = await prisma.admin.findFirst({
     where: { email: email },
   });
 
@@ -85,24 +70,11 @@ async function loginAsAdmin(email: string, password: string) {
     }
   } else {
     return 404; // admin not found
-  }**/
- 
+  }
+}
 
 async function loginAsJudge(email: string, password: string) {
-  const dummyJudge = {
-    id: "019ddb8c-d6f8-4d2e-96d5-817f6f002a39",
-    email: "judge1@email.com",
-    password: "judge123",
-    name: "Judge 1"
-  };
-
-  if (email === dummyJudge.email && password === dummyJudge.password) {
-    await createSession(dummyJudge.id);
-    return { status: 200, data: dummyJudge };
-  } else {
-    return { status: 401 };
-  }
-  /**const judge = await prisma.judge.findFirst({
+  const judge = await prisma.judge.findFirst({
     where: {
       email: email,
     },
@@ -119,6 +91,5 @@ async function loginAsJudge(email: string, password: string) {
     }
   } else {
     return 404;
-  }**/
-
+  }
 }
